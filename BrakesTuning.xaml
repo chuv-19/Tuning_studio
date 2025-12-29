@@ -1,0 +1,49 @@
+﻿<Window x:Class="Prototype.BrakesTuning"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Тюнинг тормозов" Height="500" Width="800" Background="#2C2C2C"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="24">
+        <Border Background="Transparent" CornerRadius="18" Padding="28" Margin="-21,-19,-22.4,-22.6">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,-18,-28.2,-28">
+                <StackPanel>
+                    <TextBlock Text="Тюнинг тормозов"
+                               FontSize="28" FontWeight="Bold" Foreground="#FF5722"
+                               Margin="0,0,0,16" TextAlignment="Center"/>
+                    <TextBlock TextWrapping="Wrap" FontSize="16" Foreground="#F3F3F3" Margin="0,0,0,18" TextAlignment="Center">
+                        Современный тюнинг тормозной системы — это не только повышение безопасности, но и улучшение динамики вашего автомобиля. Мы предлагаем установку спортивных тормозных дисков и колодок, усиление тормозной системы и индивидуальный подбор компонентов для максимальной эффективности.
+                    </TextBlock>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+                        <Border CornerRadius="10" Margin="8" Background="#222" Padding="3">
+                            <Image Height="141" Width="276" Source="ZgAAAgLq6eA-960.jpg" Stretch="Fill"/>
+                        </Border>
+                    </StackPanel>
+
+                    <TextBlock Text="Наши услуги:" FontSize="22" FontWeight="SemiBold" Foreground="#FF5722" Margin="0,0,0,14"/>
+
+                    <StackPanel Orientation="Vertical" Margin="0,0,0,0">
+                        <Border Background="Transparent" CornerRadius="10" Margin="0,0,0,14" Padding="12" BorderBrush="#FF5722" BorderThickness="1">
+                            <StackPanel>
+                                <TextBlock Text="Установка спортивных тормозных дисков и колодок" FontSize="16"  FontWeight="Bold" Foreground="White"/>
+                                <TextBlock Text="от 4 000 ₽" FontSize="14" Foreground="#AAAAAA" Margin="8,2,0,0"/>
+                            </StackPanel>
+                        </Border>
+                        <Border Background="Transparent" CornerRadius="10" Margin="0,0,0,14" Padding="12" BorderBrush="#FF5722" BorderThickness="1">
+                            <StackPanel>
+                                <TextBlock Text="Усиление тормозной системы" FontSize="16"  FontWeight="Bold" Foreground="White"/>
+                                <TextBlock Text="от 3 500 ₽" FontSize="14" Foreground="#AAAAAA" Margin="8,2,0,0"/>
+                            </StackPanel>
+                        </Border>
+                        <Border Background="Transparent" CornerRadius="10" Margin="0,0,0,14" Padding="12" BorderBrush="#FF5722" BorderThickness="1">
+                            <StackPanel>
+                                <TextBlock Text="Индивидуальный подбор компонентов" FontSize="16" FontWeight="Bold" Foreground="White"/>
+                                <TextBlock Text="бесплатная консультация" FontSize="14" Foreground="#AAAAAA" Margin="8,2,0,0"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</Window>

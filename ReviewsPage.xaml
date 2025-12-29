@@ -1,0 +1,123 @@
+﻿<Page x:Class="Prototype.ReviewsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Отзывы">
+
+    <Grid Background="Transparent">
+        <Border Padding="30" Background="Transparent" HorizontalAlignment="Center" Width="800">
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Заголовок -->
+                <TextBlock Text="Отзывы клиентов"
+                           FontSize="28" FontWeight="Bold" Foreground="#FF5722"
+                           Margin="0,0,0,20" TextAlignment="Center" Grid.Row="0"/>
+
+                <!-- Форма добавления отзыва -->
+                <Border Background="#2C2C2C" CornerRadius="12" Padding="20" Margin="0,0,0,30" Grid.Row="1">
+                    <StackPanel>
+
+                        <!-- Имя с placeholder -->
+                        <Grid Margin="0,0,0,10" Height="30">
+                            <TextBox x:Name="NameTextBox" FontSize="14" Background="#3A3A3A"
+                                     Foreground="White" BorderThickness="0"
+                                     TextChanged="NameTextBox_TextChanged"/>
+                            <TextBlock x:Name="NamePlaceholder" Text="Ваше имя" Foreground="Gray" Margin="5,0,0,0"
+                                       VerticalAlignment="Center" IsHitTestVisible="False" />
+                        </Grid>
+
+                        <!-- Рейтинг -->
+                        <StackPanel x:Name="StarsPanel" Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Left">
+                            <TextBlock Text="★" FontSize="24" Foreground="Gray" Cursor="Hand"
+                                       MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
+                                       MouseLeftButtonDown="Star_MouseLeftButtonDown" Tag="1" Margin="2"/>
+                            <TextBlock Text="★" FontSize="24" Foreground="Gray" Cursor="Hand"
+                                       MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
+                                       MouseLeftButtonDown="Star_MouseLeftButtonDown" Tag="2" Margin="2"/>
+                            <TextBlock Text="★" FontSize="24" Foreground="Gray" Cursor="Hand"
+                                       MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
+                                       MouseLeftButtonDown="Star_MouseLeftButtonDown" Tag="3" Margin="2"/>
+                            <TextBlock Text="★" FontSize="24" Foreground="Gray" Cursor="Hand"
+                                       MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
+                                       MouseLeftButtonDown="Star_MouseLeftButtonDown" Tag="4" Margin="2"/>
+                            <TextBlock Text="★" FontSize="24" Foreground="Gray" Cursor="Hand"
+                                       MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
+                                       MouseLeftButtonDown="Star_MouseLeftButtonDown" Tag="5" Margin="2"/>
+                        </StackPanel>
+
+                        <!-- Отзыв с placeholder -->
+                        <Grid Margin="0,0,0,10" Height="100">
+                            <TextBox x:Name="ReviewTextBox" AcceptsReturn="True" TextWrapping="Wrap"
+                                     FontSize="14" Background="#3A3A3A" Foreground="White"
+                                     BorderThickness="0" TextChanged="ReviewTextBox_TextChanged"/>
+                            <TextBlock x:Name="ReviewPlaceholder" Text="Ваш отзыв" Foreground="Gray" Margin="5,0,0,0"
+                                       VerticalAlignment="Top" Padding="3,5,0,0" IsHitTestVisible="False"/>
+                        </Grid>
+
+                        <!-- Кнопка отправки -->
+                        <Button Content="Отправить"
+                                Width="100"
+                                Foreground="White"
+                                HorizontalAlignment="Right"
+                                Click="SendReview_Click"
+                                BorderThickness="0"
+                                Background="#FF5722" Height="21">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="border"
+                                            Background="{TemplateBinding Background}"
+                                            CornerRadius="8"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            BorderBrush="{TemplateBinding BorderBrush}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="border" Property="Background" Value="#CC0000"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="border" Property="Background" Value="#990000"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="border" Property="Background" Value="#888888"/>
+                                            <Setter Property="Foreground" Value="#CCCCCC"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                    </StackPanel>
+                </Border>
+
+                <!-- Список отзывов с прокруткой -->
+                <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+                    <ItemsControl x:Name="ReviewsList">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Background="#222" CornerRadius="10" Padding="15" Margin="0,0,0,15">
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                            <TextBlock Text="{Binding Name}"
+                                                       FontWeight="SemiBold" Foreground="White" FontSize="16"/>
+                                            <TextBlock Text=" — " Foreground="White" FontSize="16" Margin="5,0"/>
+                                            <TextBlock Text="{Binding RatingStars}"
+                                                       Foreground="#FFFF00" FontSize="16" FontWeight="Bold"/>
+                                        </StackPanel>
+                                        <TextBlock Text="{Binding Text}" Foreground="#CCC" TextWrapping="Wrap" FontSize="14"/>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+
+            </Grid>
+        </Border>
+    </Grid>
+</Page>
