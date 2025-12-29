@@ -79,6 +79,7 @@ dotnet test tests/UnitTests/
 dotnet test tests/IntegrationTests/
 
 ## Архитектура
+```
 WPF View (UI)
       │
       ▼
@@ -89,3 +90,4 @@ Model (бизнес-логика)
       │
       ▼
 Сервисы / Репозитории / DB
+```
