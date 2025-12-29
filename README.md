@@ -54,6 +54,7 @@ CREATE TABLE Reviews (
     CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (UserId) REFERENCES Users(Id)
 );
+```
 
 ## Быстрый запуск
 git clone https://github.com/yourusername/OrderTuningStudio.git
